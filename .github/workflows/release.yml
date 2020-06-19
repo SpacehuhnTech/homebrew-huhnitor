@@ -1,0 +1,27 @@
+name: Publish new release
+
+on: [repository_dispatch]
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      - name: Make build script executable
+        run: chmod +x build.sh
+
+      - name: Write Formula
+        run: ./build.sh ${{ github.event.client_payload.version }} ${{ github.event.client_payload.hash }} ${{ github.event.client_payload.url }}
+
+      - name: Commit
+        uses: EndBug/add-and-commit@v4
+        with:
+          author_name: SpacehuhnBot
+          author_email: bot@spacehuhn.com
+          message: "Updated to version ${{ github.event.client_payload.version }}"
+          add: "Formula/huhnitor.rb"
+          tag: "${{ github.event.client_payload.version }}"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
