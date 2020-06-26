@@ -4,9 +4,9 @@
 class Huhnitor < Formula
     desc "An intergalactic serial monitor for the ESP8266 Deauther"
     homepage "https://github.com/SpacehuhnTech/Huhnitor"
-    url "https://github.com/spacehuhntech/Huhnitor/releases/download/1.1.1/huhnitor_1.1.1_mac.tar.gz"
-    sha256 "158069f653de433201034dfe84b12626add34de1ac64ba44d4e6ba29d8bd52d8"
-    version "1.1.1"
+    url "https://github.com/spacehuhntech/Huhnitor/releases/download/1.1.2/huhnitor_1.1.2_mac.tar.gz"
+    sha256 "50c6d95d344db7d93f0029543c44a37e3f053d12fa2fa25c2771565e3f5a1787"
+    version "1.1.2"
 
     def install
     bin.install "huhnitor"
